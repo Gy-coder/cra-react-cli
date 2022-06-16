@@ -3,6 +3,7 @@ const chalk = require("chalk");
 const packageJSON = require("./package.json");
 const path = require("path");
 const fs = require("fs-extra");
+const spawn = require("cross-spawn");
 
 async function init() {
   let projectName;
@@ -50,7 +51,9 @@ async function run(root, projectName, originalDir) {
   let scriptName = "react-scripts";
   let templateName = "cra-template";
   const allDependencies = ["react", "react-dom", scriptName, templateName];
-  console.log("Install packages. it's might take a couple of minutes");
+  console.log(`
+    📦 Install packages. it's might take a couple of minutes
+  `);
   console.log(`
     📦 Installing ${chalk.cyan("react")} ${chalk.cyan(
     "react-dom"
@@ -59,7 +62,14 @@ async function run(root, projectName, originalDir) {
   await install(root, allDependencies);
 }
 
-async function install(root, allDependencies) {}
+async function install(root, allDependencies) {
+  return new Promise((resolve) => {
+    const command = "yarnpkg";
+    const args = ["add", "--exact", ...allDependencies, "--cwd", root];
+    const child = spawn(command, args, { stdio: "inherit" });
+    child.on("close", resolve);
+  });
+}
 
 module.exports = {
   init,
