@@ -36,7 +36,30 @@ async function createApp(projectName) {
   console.log("projectName", projectName);
   console.log("root:", root);
   console.log("originalDir:", originalDir);
+  await run(root, projectName, originalDir);
 }
+
+/**
+ *
+ * @param {*} root 项目创建的路径
+ * @param {*} projectName 项目名
+ * @param {*} originalDir 原来的工作目录
+ */
+
+async function run(root, projectName, originalDir) {
+  let scriptName = "react-scripts";
+  let templateName = "cra-template";
+  const allDependencies = ["react", "react-dom", scriptName, templateName];
+  console.log("Install packages. it's might take a couple of minutes");
+  console.log(`
+    📦 Installing ${chalk.cyan("react")} ${chalk.cyan(
+    "react-dom"
+  )},and ${chalk.cyan(scriptName)} ${`with ${chalk.cyan(templateName)}`}......
+  `);
+  await install(root, allDependencies);
+}
+
+async function install(root, allDependencies) {}
 
 module.exports = {
   init,
