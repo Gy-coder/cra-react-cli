@@ -60,6 +60,14 @@ async function run(root, projectName, originalDir) {
   )},and ${chalk.cyan(scriptName)} ${`with ${chalk.cyan(templateName)}`}......
   `);
   await install(root, allDependencies);
+  let data = [root, projectName, true, originalDir, templateName];
+  let source = `
+      var init = require('react-scripts/scripts/init.js')
+      init.apply(null,JSON.parse(process.argv[1]))
+  `;
+  await execNodeScript({ cwd: process.cwd() }, data, source);
+  console.log("Done");
+  process.exit(0);
 }
 
 async function install(root, allDependencies) {
@@ -67,6 +75,17 @@ async function install(root, allDependencies) {
     const command = "yarnpkg";
     const args = ["add", "--exact", ...allDependencies, "--cwd", root];
     const child = spawn(command, args, { stdio: "inherit" });
+    child.on("close", resolve);
+  });
+}
+
+async function execNodeScript({ cwd }, data, source) {
+  return new Promise((resolve) => {
+    const child = spawn(
+      process.execPath,
+      ["-e", source, "--", JSON.stringify(data)],
+      { cwd, stdio: "inherit" }
+    );
     child.on("close", resolve);
   });
 }
