@@ -48,8 +48,8 @@ async function createApp(projectName) {
  */
 
 async function run(root, projectName, originalDir) {
-  let scriptName = "react-scripts";
-  let templateName = "cra-template";
+  let scriptName = "react-scripts2";
+  let templateName = "cra-template2";
   const allDependencies = ["react", "react-dom", scriptName, templateName];
   console.log(`
     📦 Install packages. it's might take a couple of minutes
@@ -62,7 +62,8 @@ async function run(root, projectName, originalDir) {
   await install(root, allDependencies);
   let data = [root, projectName, true, originalDir, templateName];
   let source = `
-      var init = require('react-scripts/scripts/init.js')
+      var init = require('react-scripts2/scripts/init.js')
+      console.log('init:',init)
       init.apply(null,JSON.parse(process.argv[1]))
   `;
   await execNodeScript({ cwd: process.cwd() }, data, source);

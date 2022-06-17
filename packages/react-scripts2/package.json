@@ -1,5 +1,5 @@
 {
-  "name": "react-scripts",
+  "name": "react-scripts2",
   "version": "0.0.0",
   "description": "> TODO: description",
   "author": "Gy <406631892@qq.com>",
@@ -21,9 +21,16 @@
     "url": "git+https://github.com/Gy-coder/Gy-coder.github.io.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build": "node ./bin/react-scripts build"
   },
   "bugs": {
     "url": "https://github.com/Gy-coder/Gy-coder.github.io/issues"
+  },
+  "dependencies": {
+    "webpack": "^5.73.0"
+  },
+  "bin": {
+    "rs": "./bin/react-scripts2"
   }
 }
