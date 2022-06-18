@@ -11,9 +11,15 @@
     "@types/chalk": "^2.2.0",
     "chalk": "^4.0.0",
     "cross-spawn": "^7.0.3",
-    "fs-extra": "^10.1.0"
+    "fs-extra": "^10.1.0",
+    "react-scripts2": "file:./packages/react-scripts2"
   },
   "scripts": {
     "create-react-app": "node ./packages/create-react-app/index.js"
+  },
+  "bin": {
+    "create-react-app": "./bin/create-react-app",
+    "react-scripts2": "./bin/react-script2",
+    "cra-tempate2": "./bin/create-template2"
   }
 }

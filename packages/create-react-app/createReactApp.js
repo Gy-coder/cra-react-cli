@@ -62,7 +62,7 @@ async function run(root, projectName, originalDir) {
   await install(root, allDependencies);
   let data = [root, projectName, true, originalDir, templateName];
   let source = `
-      var init = require('react-scripts2/scripts/init.js')
+      var init = require("react-scripts2/scripts/init")
       console.log('init:',init)
       init.apply(null,JSON.parse(process.argv[1]))
   `;
@@ -74,7 +74,17 @@ async function run(root, projectName, originalDir) {
 async function install(root, allDependencies) {
   return new Promise((resolve) => {
     const command = "yarnpkg";
-    const args = ["add", "--exact", ...allDependencies, "--cwd", root];
+    const react = allDependencies.slice(0, 2);
+    const others = allDependencies.slice(2);
+    console.log(react);
+    const args = [
+      "add",
+      "--exact",
+      ...react,
+      "file:../packages/react-scripts2",
+      "--cwd",
+      root,
+    ];
     const child = spawn(command, args, { stdio: "inherit" });
     child.on("close", resolve);
   });

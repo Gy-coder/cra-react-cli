@@ -3680,6 +3680,11 @@ randombytes@^2.1.0:
   dependencies:
     safe-buffer "^5.1.0"
 
+"react-scripts2@file:./packages/react-scripts2":
+  version "0.0.0"
+  dependencies:
+    webpack "^5.73.0"
+
 read-cmd-shim@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmmirror.com/read-cmd-shim/-/read-cmd-shim-2.0.0.tgz#4a50a71d6f0965364938e9038476f7eede3928d9"
