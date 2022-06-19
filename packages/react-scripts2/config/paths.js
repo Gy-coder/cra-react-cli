@@ -1,5 +1,6 @@
 const path = require("path");
-const appDictionary = process.cwd();
+const fs = require("fs-extra");
+const appDictionary = fs.realpathSync(process.cwd());
 
 const resolveProject = (relativePath) =>
   path.resolve(appDictionary, relativePath);

@@ -82,6 +82,7 @@ async function install(root, allDependencies) {
       "--exact",
       ...react,
       "file:../packages/react-scripts2",
+      "file:../packages/cra-template2",
       "--cwd",
       root,
     ];
