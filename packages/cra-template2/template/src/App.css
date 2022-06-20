@@ -1,0 +1,22 @@
+.app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: slateblue;
+    color: white;
+    font-size: 32px;
+}
+
+.m {
+    margin-top: 32px;
+}
+
+button {
+    background-color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+}
