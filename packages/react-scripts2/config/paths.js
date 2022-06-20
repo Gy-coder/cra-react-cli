@@ -6,8 +6,9 @@ const resolveProject = (relativePath) =>
   path.resolve(appDictionary, relativePath);
 
 module.exports = {
-  appHTML: resolveProject("public/index.html"),
+  appHtml: resolveProject("public/index.html"),
   appBuild: resolveProject("build"),
   appIndexJs: resolveProject("src/index.js"),
   appPublic: resolveProject("public"),
+  appSrc: resolveProject("src"),
 };

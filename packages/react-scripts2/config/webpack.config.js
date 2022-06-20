@@ -11,7 +11,6 @@ module.exports = function (webpackEnv) {
   const isEnvDevelopment = webpackEnv === "development";
   return {
     mode: isEnvProduction ? "production" : isEnvDevelopment && "development",
-    entry: paths.appIndexJs,
     output: {
       path: paths.appBuild,
     },
@@ -20,9 +19,9 @@ module.exports = function (webpackEnv) {
         {
           test: /\.(js|jsx|ts|tsx)$/,
           include: paths.appSrc,
-          loader: require.resolve("babel-loader"),
+          loader: "babel-loader",
           options: {
-            presets: [[require.resolve("babel-preset-react-app")]],
+            presets: ["babel-preset-react-app"],
           },
         },
       ],
@@ -33,5 +32,6 @@ module.exports = function (webpackEnv) {
         template: paths.appHtml,
       }),
     ],
+    resolve: { extensions: [".js", ".jsx", ".ts", ".tsx"] },
   };
 };

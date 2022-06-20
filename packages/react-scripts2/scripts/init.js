@@ -29,8 +29,8 @@ function init(
     args = ["add"];
   const templateDir = path.join(templatePath, "template");
   fs.copySync(templateDir, appPath); // 将template中的内容拷贝过来
-  // console.log(`Installing template dependencies using ${command}...`);
-  // spawn.sync(command, args, { stdio: "inherit" });
+  console.log(`Installing template dependencies using ${command}...`);
+  spawn.sync(command, args, { stdio: "inherit" });
   console.log(`Removing template package using ${command}...`);
   spawn.sync(command, [remove, templateName], {
     stdio: "inherit",

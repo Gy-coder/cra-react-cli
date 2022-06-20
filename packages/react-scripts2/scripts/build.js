@@ -10,8 +10,6 @@ fs.emptyDirSync(paths.appBuild); // 打包的目录build webpack默认是dist
 copyPublicFolder(); // 拷贝public目录
 build();
 
-console.log("config:", config);
-
 // 打包
 function build() {
   // config是webpack的配置 执行webpack得到编译对象compiler
