@@ -1,13 +1,13 @@
 0 silly argv {
 0 silly argv   _: [ 'add' ],
-0 silly argv   globs: [ 'webapck' ],
+0 silly argv   globs: [ 'webpack-dev-server' ],
 0 silly argv   lernaVersion: '5.1.2',
 0 silly argv   '$0': 'lerna',
-0 silly argv   pkg: 'react-script2'
+0 silly argv   pkg: 'react-scirpts2'
 0 silly argv }
 1 notice cli v5.1.2
 2 verbose rootPath /Users/gy./Desktop/banana-react-cli
-3 error HttpErrorGeneral: 404 Not Found - GET https://registry.npmmirror.com/react-script2 - [NOT_FOUND] react-script2 not found
+3 error HttpErrorGeneral: 404 Not Found - GET https://registry.npmmirror.com/react-scirpts2 - [NOT_FOUND] react-scirpts2 not found
 3 error     at /Users/gy./Desktop/banana-react-cli/node_modules/pacote/node_modules/npm-registry-fetch/lib/check-response.js:93:15
 3 error     at processTicksAndRejections (internal/process/task_queues.js:95:5)
 3 error     at async RegistryFetcher.packument (/Users/gy./Desktop/banana-react-cli/node_modules/pacote/lib/registry.js:92:19)
