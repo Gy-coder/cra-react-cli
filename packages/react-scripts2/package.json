@@ -36,5 +36,9 @@
   },
   "bin": {
     "react-scripts2": "./bin/react-script2.js"
+  },
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "style-loader": "^3.3.1"
   }
 }

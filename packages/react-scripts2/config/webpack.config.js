@@ -24,6 +24,10 @@ module.exports = function (webpackEnv) {
             presets: ["babel-preset-react-app"],
           },
         },
+        {
+          test: /\.css$/i,
+          use: ["style-loader", "css-loader"],
+        },
       ],
     },
     plugins: [

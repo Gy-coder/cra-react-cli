@@ -13,7 +13,8 @@ const createServeConfig = require("../config/webpackDevServer.config.js");
 const serverConfig = createServeConfig();
 const devServer = new WebpackDevServer(serverConfig, compiler);
 
-devServer.listen(3000, (err) => {
-  if (err) console.log("errerrerrerrerr", err);
-  console.log(chalk.cyan("Starting the development server...\n"));
+devServer.startCallback(() => {
+  console.log(`
+     ${chalk.green("✨ Successfully started server on http://localhost:8080")}
+  `);
 });
