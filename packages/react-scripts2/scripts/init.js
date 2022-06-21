@@ -17,6 +17,7 @@ function init(
   appPackage.scripts = Object.assign({
     start: "react-scripts2 start",
     build: "react-scripts2 build",
+    eject: "react-scripts2 eject",
   });
   // 其他一系列的设置 eslint config browsers list appPackage.xxx = xx
   // 写入package.json文件内容
