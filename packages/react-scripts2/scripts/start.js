@@ -1,5 +1,3 @@
-const fs = require("fs-extra");
-const paths = require("../config/paths");
 const chalk = require("chalk");
 
 process.env.NODE_ENV = "development";
@@ -15,6 +13,6 @@ const devServer = new WebpackDevServer(serverConfig, compiler);
 
 devServer.startCallback(() => {
   console.log(`
-     ${chalk.green("✨ Successfully started server on http://localhost:8080")}
+     ${chalk.green("✨ Successfully started server")}
   `);
 });
