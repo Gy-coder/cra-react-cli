@@ -8,6 +8,7 @@ function init(
   originalDir,
   templateName // cra-template
 ) {
+  console.log("templateName:", templateName);
   const appPackage = require(path.join(appPath, "package.json"));
   // 先拿到模板中的package.json文件 将package.json的内容做一个合并 merge
   const templatePath = path.dirname(

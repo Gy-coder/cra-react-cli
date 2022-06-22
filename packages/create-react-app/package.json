@@ -27,6 +27,7 @@
     "url": "https://github.com/Gy-coder/Gy-coder.github.io/issues"
   },
   "dependencies": {
-    "commander": "^9.3.0"
+    "commander": "^9.3.0",
+    "inquirer": "^9.0.0"
   }
 }

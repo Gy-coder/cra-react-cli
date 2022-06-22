@@ -4,23 +4,38 @@ const packageJSON = require("./package.json");
 const path = require("path");
 const fs = require("fs-extra");
 const spawn = require("cross-spawn");
+const { prompt } = require("inquirer");
 
 async function init() {
   let projectName;
+  let isTs = false;
   new Command(packageJSON.name)
     .version(packageJSON.version)
     .arguments("<project-directory>")
     .usage(`${chalk.green("<project-directory>")}`)
     .action((name) => {
-      projectName = name;
+      prompt([
+        {
+          type: "list",
+          name: "type",
+          message: `Do you want to use Typescript in your project`,
+          choices: [
+            { name: "Javascript", value: "js" },
+            { name: "Typescript", value: "ts" },
+          ],
+        },
+      ]).then(async ({ type }) => {
+        projectName = name;
+        isTs = type === "ts" ? true : false;
+        await createApp(projectName, isTs);
+      });
     })
     .parse(process.argv);
-  await createApp(projectName);
 }
 
-async function createApp(projectName) {
+async function createApp(projectName, isTs) {
   let root = path.resolve(projectName);
-  fs.ensureDir(root);
+  fs.emptyDir(root);
   console.log(`creating a new React app  in ${chalk.green(root)}`);
   const packageJSON = {
     name: projectName,
@@ -33,7 +48,7 @@ async function createApp(projectName) {
   );
   const originalDir = process.cwd();
   process.chdir(root);
-  await run(root, projectName, originalDir);
+  await run(root, projectName, originalDir, isTs);
 }
 
 /**
@@ -41,19 +56,22 @@ async function createApp(projectName) {
  * @param {*} root 项目创建的路径
  * @param {*} projectName 项目名
  * @param {*} originalDir 原来的工作目录
+ * @param {*} isTs 是否是ts
  */
 
-async function run(root, projectName, originalDir) {
+async function run(root, projectName, originalDir, isTs) {
   let scriptName = "moon-scripts";
-  let templateName = "moon-template-typescript";
-  const allDependencies = [
-    "react",
-    "react-dom",
-    "@types/react",
-    "@types/react-dom",
-    scriptName,
-    templateName,
-  ];
+  let templateName = isTs ? "moon-template-typescript" : "moon-template";
+  const allDependencies = isTs
+    ? [
+        "react",
+        "react-dom",
+        "@types/react",
+        "@types/react-dom",
+        scriptName,
+        templateName,
+      ]
+    : ["react", "react-dom", scriptName, templateName];
   console.log(`
     📦 Install packages. it's might take a couple of minutes
   `);
@@ -77,14 +95,13 @@ async function install(root, allDependencies) {
   return new Promise((resolve) => {
     const command = "yarnpkg";
     const react = allDependencies.slice(0, -2);
-    const others = allDependencies.slice(2);
-    console.log(react);
+    const others = allDependencies.slice(-2);
     const args = [
       "add",
       "--exact",
       ...react,
-      "file:../packages/moon-scripts",
-      "file:../packages/moon-template-typescript",
+      `file:../packages/${others[0]}`,
+      `file:../packages/${others[1]}`,
       "--cwd",
       root,
     ];
