@@ -45,8 +45,15 @@ async function createApp(projectName) {
 
 async function run(root, projectName, originalDir) {
   let scriptName = "moon-scripts";
-  let templateName = "moon-template";
-  const allDependencies = ["react", "react-dom", scriptName, templateName];
+  let templateName = "moon-template-typescript";
+  const allDependencies = [
+    "react",
+    "react-dom",
+    "@types/react",
+    "@types/react-dom",
+    scriptName,
+    templateName,
+  ];
   console.log(`
     📦 Install packages. it's might take a couple of minutes
   `);
@@ -69,7 +76,7 @@ async function run(root, projectName, originalDir) {
 async function install(root, allDependencies) {
   return new Promise((resolve) => {
     const command = "yarnpkg";
-    const react = allDependencies.slice(0, 2);
+    const react = allDependencies.slice(0, -2);
     const others = allDependencies.slice(2);
     console.log(react);
     const args = [
@@ -77,7 +84,7 @@ async function install(root, allDependencies) {
       "--exact",
       ...react,
       "file:../packages/moon-scripts",
-      "file:../packages/moon-template",
+      "file:../packages/moon-template-typescript",
       "--cwd",
       root,
     ];

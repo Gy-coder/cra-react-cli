@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "description": "> TODO: description",
   "author": "Gy <406631892@qq.com>",
-  "homepage": "https://github.com/Gy-coder/Gy-coder.github.io#readme",
-  "license": "MIT",
-  "main": "index.js",
+  "homepage": "https://github.com/Gy-coder/cra-react-cli#readme",
+  "license": "ISC",
+  "main": "lib/moon-template-typescript.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -18,12 +18,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Gy-coder/Gy-coder.github.io.git"
+    "url": "git+https://github.com/Gy-coder/cra-react-cli.git"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
-    "url": "https://github.com/Gy-coder/Gy-coder.github.io/issues"
+    "url": "https://github.com/Gy-coder/cra-react-cli/issues"
   }
 }
