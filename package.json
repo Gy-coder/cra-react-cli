@@ -1,5 +1,5 @@
 {
-  "name": "root",
+  "name": "moon-react-cli",
   "private": true,
   "workspaces": [
     "packages/*"
@@ -15,7 +15,7 @@
     "react-scripts2": "file:./packages/react-scripts2"
   },
   "scripts": {
-    "create-react-app": "node ./packages/create-react-app/index.js"
+    "moon-react": "node ./packages/create-react-app/index.js"
   },
   "bin": {
     "create-react-app": "./bin/create-react-app",

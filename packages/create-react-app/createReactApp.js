@@ -15,7 +15,6 @@ async function init() {
       projectName = name;
     })
     .parse(process.argv);
-  console.log("projectName", projectName);
   await createApp(projectName);
 }
 
@@ -34,9 +33,6 @@ async function createApp(projectName) {
   );
   const originalDir = process.cwd();
   process.chdir(root);
-  console.log("projectName", projectName);
-  console.log("root:", root);
-  console.log("originalDir:", originalDir);
   await run(root, projectName, originalDir);
 }
 
@@ -48,8 +44,8 @@ async function createApp(projectName) {
  */
 
 async function run(root, projectName, originalDir) {
-  let scriptName = "react-scripts2";
-  let templateName = "cra-template2";
+  let scriptName = "moon-scripts";
+  let templateName = "moon-template";
   const allDependencies = ["react", "react-dom", scriptName, templateName];
   console.log(`
     📦 Install packages. it's might take a couple of minutes
@@ -62,8 +58,7 @@ async function run(root, projectName, originalDir) {
   await install(root, allDependencies);
   let data = [root, projectName, true, originalDir, templateName];
   let source = `
-      var init = require("react-scripts2/scripts/init")
-      console.log('init:',init)
+      var init = require("moon-scripts/scripts/init")
       init.apply(null,JSON.parse(process.argv[1]))
   `;
   await execNodeScript({ cwd: process.cwd() }, data, source);
@@ -81,8 +76,8 @@ async function install(root, allDependencies) {
       "add",
       "--exact",
       ...react,
-      "file:../packages/react-scripts2",
-      "file:../packages/cra-template2",
+      "file:../packages/moon-scripts",
+      "file:../packages/moon-template",
       "--cwd",
       root,
     ];

@@ -51,8 +51,6 @@ prompt([
   const ownPackage = require(path.join(ownPath, "package.json"));
   const appPackage = require(path.join(appPath, "package.json"));
 
-  console.log("own", ownPackage, "app", appPackage);
-
   console.log(chalk.cyan("Updating the dependencies"));
   const ownPackageName = ownPackage.name;
   if (appPackage.devDependencies) {
@@ -111,7 +109,6 @@ prompt([
   });
 
   console.log();
-  console.log("app finlly", appPackage);
   fs.writeFileSync(
     path.join(appPath, "package.json"),
     JSON.stringify(appPackage, null, 2) + os.EOL

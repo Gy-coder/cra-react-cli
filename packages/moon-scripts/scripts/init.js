@@ -5,7 +5,7 @@ function init(
   appPath, // path.resolve(appName)
   appName, // my-app
   verbose,
-  originalDirectory, // process.cwd()
+  originalDir,
   templateName // cra-template
 ) {
   const appPackage = require(path.join(appPath, "package.json"));
@@ -15,9 +15,9 @@ function init(
   );
   // 在package.json文件中新增几个命令 start build test eject
   appPackage.scripts = Object.assign({
-    start: "react-scripts2 start",
-    build: "react-scripts2 build",
-    eject: "react-scripts2 eject",
+    start: "moon-scripts start",
+    build: "moon-scripts build",
+    eject: "moon-scripts eject",
   });
   // 其他一系列的设置 eslint config browsers list appPackage.xxx = xx
   // 写入package.json文件内容
