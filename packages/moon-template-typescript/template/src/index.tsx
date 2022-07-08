@@ -4,6 +4,6 @@ import App from "./App";
 import "./reset.css";
 
 const rootElement = document.getElementById("root");
-const root = createRoot(rootElement);
+const root = createRoot(rootElement as HTMLElement);
 
 root.render(<App />);
