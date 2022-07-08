@@ -35,7 +35,7 @@ async function init() {
 
 async function createApp(projectName, isTs) {
   let root = path.resolve(projectName);
-  fs.emptyDir(root);
+  fs.ensureDir(root);
   console.log(`creating a new React app  in ${chalk.green(root)}`);
   const packageJSON = {
     name: projectName,
@@ -44,7 +44,8 @@ async function createApp(projectName, isTs) {
   };
   fs.writeFileSync(
     path.join(root, "package.json"),
-    JSON.stringify(packageJSON, null, 2)
+    JSON.stringify(packageJSON, null, 2),
+    { flag: "a+" }
   );
   const originalDir = process.cwd();
   process.chdir(root);
@@ -120,6 +121,11 @@ async function execNodeScript({ cwd }, data, source) {
     child.on("close", resolve);
   });
 }
+
+const writeFile = async (path, content) => {
+  await mkdirp(path);
+  fs.writeFileSync(path, content);
+};
 
 module.exports = {
   init,

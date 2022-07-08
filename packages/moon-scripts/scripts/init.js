@@ -21,7 +21,7 @@ function init(
   });
   // 其他一系列的设置 eslint config browsers list appPackage.xxx = xx
   // 写入package.json文件内容
-  fs.writeFileSync(
+  fs.writeFile(
     path.join(appPath, "package.json"),
     JSON.stringify(appPackage, null, 2) + os.EOL
   );
