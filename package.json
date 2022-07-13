@@ -12,7 +12,7 @@
     "chalk": "^4.0.0",
     "cross-spawn": "^7.0.3",
     "fs-extra": "^10.1.0",
-    "react-scripts2": "file:./packages/react-scripts2"
+    "moon-scripts": "file:./packages/moon-scripts"
   },
   "scripts": {
     "moon-react": "node ./packages/moon-react-app/index.js"
