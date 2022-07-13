@@ -1,6 +1,6 @@
 {
   "name": "create-react-app",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "> TODO: description",
   "author": "Gy <406631892@qq.com>",
   "homepage": "https://github.com/Gy-coder/Gy-coder.github.io#readme",
@@ -30,5 +30,5 @@
     "commander": "^9.3.0",
     "inquirer": "^9.0.0"
   },
-  "gitHead": "f8bd904e0d7d4fb3ca4e1731fcb1e10b6aff4eee"
+  "gitHead": "1e2cf21121547c8af00e26fefa2307c414404b7d"
 }
