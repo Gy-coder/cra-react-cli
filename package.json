@@ -15,7 +15,7 @@
     "react-scripts2": "file:./packages/react-scripts2"
   },
   "scripts": {
-    "moon-react": "node ./packages/create-react-app/index.js"
+    "moon-react": "node ./packages/moon-react-app/index.js"
   },
   "bin": {
     "create-react-app": "./bin/create-react-app",
