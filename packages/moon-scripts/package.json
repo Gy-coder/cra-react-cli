@@ -40,5 +40,6 @@
   },
   "bin": {
     "moon-scripts": "./bin/moon-scripts.js"
-  }
+  },
+  "gitHead": "f8bd904e0d7d4fb3ca4e1731fcb1e10b6aff4eee"
 }

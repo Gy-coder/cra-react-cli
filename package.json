@@ -1,6 +1,6 @@
 {
   "name": "moon-react-cli",
-  "private": true,
+  "version": "0.0.3",
   "workspaces": [
     "packages/*"
   ],
@@ -19,7 +19,8 @@
   },
   "bin": {
     "create-react-app": "./bin/create-react-app",
-    "react-scripts2": "./bin/react-script2",
-    "cra-tempate2": "./bin/create-template2"
+    "moon-scripts": "./bin/moon-scripts",
+    "moon-template": "./bin/moon-template",
+    "moon-template-typescript": "./bin/moon-template-typescript"
   }
 }
