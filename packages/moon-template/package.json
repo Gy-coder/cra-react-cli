@@ -1,6 +1,6 @@
 {
   "name": "moon-template",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "> TODO: description",
   "author": "Gy <406631892@qq.com>",
   "homepage": "https://github.com/Gy-coder/cra-react-cli#readme",
@@ -26,5 +26,5 @@
   "bugs": {
     "url": "https://github.com/Gy-coder/cra-react-cli/issues"
   },
-  "gitHead": "56f70097fa622ed097dd16723f67cca70fbf92b5"
+  "gitHead": "4387c49793ddeb03bb1768aa8ade9d48039dc711"
 }
