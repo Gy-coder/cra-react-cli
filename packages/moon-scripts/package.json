@@ -1,6 +1,6 @@
 {
   "name": "moon-scripts",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "> TODO: description",
   "author": "Gy <406631892@qq.com>",
   "homepage": "https://github.com/Gy-coder/Gy-coder.github.io#readme",
@@ -41,5 +41,5 @@
   "bin": {
     "moon-scripts": "./bin/moon-scripts.js"
   },
-  "gitHead": "1bc3b81f39e05088cf571710d70e4bedb8518373"
+  "gitHead": "be0e7fd8553754ceeeb1e36bef49108a030009b5"
 }
